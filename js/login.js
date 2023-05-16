@@ -10,7 +10,7 @@ function login() {
             document.getElementById('err-msg').innerText = "Username/Password are incorect";
         }
         else {
-            window.location.href = 'https://raw.githubusercontent.com/Nave-Cohen/gameApp/main/html/second.html'
+            $(this).load('https://raw.githubusercontent.com/Nave-Cohen/gameApp/main/html/second.html')
         }
     });
 }
