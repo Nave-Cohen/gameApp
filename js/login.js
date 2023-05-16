@@ -10,7 +10,7 @@ function login() {
             document.getElementById('err-msg').innerText = "Username/Password are incorect";
         }
         else {
-            $(this).load('https://www.google.com')
+            window.location.href = 'https://www.google.com'
         }
     });
 }
