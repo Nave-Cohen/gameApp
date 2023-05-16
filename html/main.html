@@ -3,11 +3,17 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<style>body {background-color: #212529;}</style>
 
 <div
-  class="main d-flex flex-column justify-content-center align-items-center"
+  class="main d-flex flex-column justify-content-center align-items-center bg-dark"
   style="height: 480px"
 >
-  <div class="form-container p-5 pb-3" style="border: 1px solid black">
-    <p>second</p>
+  <div class="form-container px-5 py-3 text-center" style="background-color: #EDF2F4;border-radius: 15px">
+    <div id="spinner" class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <button class="btn mb-1" onclick="console.log('login as user')" style="background-color: #17a2b8;color: white">Start</button>
+    <button id="admin-btn" class="btn mb-1 d-none" onclick="console.log('login as admin')" style="background-color: #17a2b8;color: white">Admin</button>
+  </div>
 </div>
