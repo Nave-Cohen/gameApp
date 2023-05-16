@@ -10,7 +10,7 @@ function login() {
             document.getElementById('err-msg').innerText = "Username/Password are incorect";
         }
         else {
-            window.location.href = 'https://www.google.com'
+            google.colab.kernel.invokeFunction('page2', [], {})
         }
     });
 }
