@@ -1,5 +1,5 @@
 (async function(){
-  var result = await google.colab.kernel.invokeFunction('db.iAdmin', [], {})
+  var result = await google.colab.kernel.invokeFunction('db.isAdmin', [], {})
   var res = result.data['text/plain'];
   document.getElementById('spinner').remove()
   if (res == 'True') {
