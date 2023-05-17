@@ -1,17 +1,16 @@
-async function login() {
-  var username = document.getElementById('user-name').value;
-  var password = document.getElementById('user-pass').value;
+function login() {
+    // Get the values from input fields
+    var username = document.getElementById('user-name').value;
+    var password = document.getElementById('user-pass').value;
 
-  var result = await call('db.login', username, password)
-  if (!result) {
-    document.getElementById('err-msg').innerText = "Username/Password are incorrect";
-  }
-  else {
-    var isAdmin = await call('db.isAdmin')
-    options = {
-      admin: isAdmin,
-      name: username
-    }
-    view_page('main', options)
-  }
+    // Call the Python function with the parameters
+    google.colab.kernel.invokeFunction('db.login', [username, password], {}).then(function (result) {
+        var res = result.data['text/plain'];
+        if (res == 'False') {
+            document.getElementById('err-msg').innerText = "Username/Password are incorect";
+        }
+        else {
+            google.colab.kernel.invokeFunction('show_page', ["main"], {})
+        }
+    });
 }
