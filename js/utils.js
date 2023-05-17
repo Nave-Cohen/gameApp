@@ -10,11 +10,12 @@ async function call(function_name) {
     outputObject = false;
   } else {
     try {
-      return JSON.parse(outputString.split("'").join(''));
+      outputObject = JSON.parse(outputString.split("'").join(''));
     } catch { 
-      return outputString
+      return outputString;
     }
   }
+  return outputObject;
 }
 function view_page() {
   google.colab.kernel.invokeFunction('show_page', [...arguments], {})
