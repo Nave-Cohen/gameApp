@@ -8,6 +8,10 @@ async function login() {
   }
   else {
     var isAdmin = await call('db.isAdmin')
-    view_page('main', isAdmin)
+    options = {
+      admin: isAdmin,
+      name: username
+    }
+    view_page('main', options)
   }
 }
