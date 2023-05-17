@@ -11,7 +11,7 @@ async function call(function_name) {
   } else {
     try {
       outputObject = JSON.parse(outputString.split("'").join(''));
-    } catch { }
+    } catch { return outputString }
   }
   return outputObject;
 }
