@@ -1,11 +1,20 @@
 async function call(function_name) {
-    args = [...arguments].splice(1)
-    var res = await google.colab.kernel.invokeFunction(function_name, args, {})    
-    if (res == null){return}
-    if (res.data['text/plain'] == 'True') { return true }
-    if (res.data['text/plain'] == 'False') { return false }
-    return res.data
+  var outputObject;
+  args = [...arguments].splice(1)
+  var res = await google.colab.kernel.invokeFunction(function_name, args, {})
+  if (res == null) { return }
+  const outputString = res.data['text/plain'].trim();
+  if (outputString === 'True') {
+    outputObject = true;
+  } else if (outputString === 'False') {
+    outputObject = false;
+  } else {
+    try {
+      outputObject = JSON.parse(outputString.split("'").join(''));
+    } catch { }
+  }
+  return outputObject;
 }
 function view_page() {
-    google.colab.kernel.invokeFunction('show_page', [...arguments], {})
+  google.colab.kernel.invokeFunction('show_page', [...arguments], {})
 }
