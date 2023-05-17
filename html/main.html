@@ -3,17 +3,40 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-<style>body {background-color: #212529;}</style>
+<style>
+  body {
+    background-color: #212529;
+  }
+</style>
 
 <div
   class="main d-flex flex-column justify-content-center align-items-center bg-dark"
   style="height: 480px"
 >
-  <div class="form-container d-flex flex-column justify-content-center align-items-center" style="background-color: #EDF2F4;border-radius: 15px;width:319px;height:319px">
-    <div id="spinner" class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-    <button id="start-btn" class="btn m-2 d-none" onclick="console.log('login as user')" style="background-color: #17a2b8;color: white">Start</button>
-    <button id="admin-btn" class="btn m-2 d-none" onclick="console.log('login as admin')" style="background-color: #17a2b8;color: white">Admin</button>
+  <div
+    class="form-container d-flex flex-column justify-content-center align-items-center"
+    style="
+      background-color: #edf2f4;
+      border-radius: 15px;
+      width: 319px;
+      height: 319px;
+    "
+  >
+    <button
+      class="btn m-2"
+      onclick="console.log('login as user')"
+      style="background-color: #17a2b8; color: white"
+    >
+      Start
+    </button>
+    {% if options %}
+    <button
+      class="btn m-2"
+      onclick="console.log('login as admin')"
+      style="background-color: #17a2b8; color: white"
+    >
+      Admin
+    </button>
+    {% endif %}
   </div>
 </div>
