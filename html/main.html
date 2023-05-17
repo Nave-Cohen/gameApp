@@ -22,6 +22,7 @@
       height: 319px;
     "
   >
+    <h2 class="fw-bold mb-4 text-uppercase bg-dark">Welcome {{ options.name }}</h2>
     <button
       class="btn m-2"
       onclick="console.log('login as user')"
@@ -29,7 +30,7 @@
     >
       Start
     </button>
-    {% if options %}
+    {% if options.admin %}
     <button
       class="btn m-2"
       onclick="console.log('login as admin')"
