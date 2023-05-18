@@ -1,9 +1,3 @@
 async function start() {
-  var question = await call('generate_question')
-  view_page('question', {
-    'title': question.title, 'question1': question.questions["answers"][0],
-    'question2': question.questions["answers"][1],
-    'question3': question.questions["answers"][2],
-    'question4': question.questions["answers"][3]
-  })
+  view_page('question')
 }
