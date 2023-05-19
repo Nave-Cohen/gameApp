@@ -7,7 +7,7 @@ async function call(function_name) {
     return true;
   } else if (outputString === 'False') {
     return false;
-  } else if {outputString === 'None'
+  } else if (outputString === 'None'){
     return null;
    }
   return outputString;
