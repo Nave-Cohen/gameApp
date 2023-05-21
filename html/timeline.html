@@ -1,82 +1,91 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
-    integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 <style>
-    body {
-        background-color: #212529;
-        margin-top: 20px;
-    }
+  body {
+    background-color: #f2f2f2;
+    margin-top: 20px;
+  }
 
-    .item-container {
-        text-align: center;
-        max-width: 148px;
-        word-wrap: break-word;
-    }
+  .logo img {
+    width: 300px;
+    height: 200px;
+  }
 
-    .line {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        width: 30px;
-        height: 1px;
-        background-color: white;
-    }
+  .item-container {
+    text-align: center;
+    max-width: 148px;
+    word-wrap: break-word;
+  }
 
-    .circle {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        outline: 2px dashed;
-        outline-offset: 5px;
-    }
+  .line {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    width: 30px;
+    height: 1px;
+    background-color: black;
+  }
 
-    .timeline-number,
-    .display-6 {
-        padding-bottom: 10px;
-    }
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 2px dashed;
+    outline-offset: 5px;
+  }
 
-    .circle.correct-answer {
-        background-color: rgba(0, 255, 106, 0.5);
-        outline-color: rgba(0, 255, 106, 0.7);
-    }
+  .timeline-number,
+  .display-6 {
+    padding-bottom: 10px;
+  }
 
-    .circle.wrong-answer {
-        background-color: rgba(255, 62, 48, 0.5);
-        outline-color: rgba(255, 62, 48, 0.7);
-    }
+  .circle.correct-answer {
+    background-color: rgba(0, 255, 106, 0.8);
+    outline-color: rgba(0, 255, 106, 0.9);
+  }
+
+  .circle.wrong-answer {
+    background-color: rgba(255, 62, 48, 0.8);
+    outline-color: rgba(255, 62, 48, 0.9);
+  }
 </style>
-<div class="main d-flex flex-column justify-content-center align-items-center bg-dark" style="height: 480px">
-    <h1 class="display-6">Question Timeline</h1>
-    <div class="timeline-container bg-dark">
-        {% for i in range(options|length) %} {% set
-        question = options[i] %}
-        {% if i % 10 == 0 %}
-        {% if not loop.first %}
-    </div>
+<div class="main d-flex flex-column justify-content-center align-items-center" style="height: 480px;background-color"
+  :"#f2f2f2">
+  <div class="logo">
+    <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
+  </div>
+  <h1 class="display-6">Question Timeline</h1>
+  <div class="timeline-container" style="background-color" :"#f2f2f2">
+    {% for i in range(options|length) %} {% set
+    question = options[i] %}
+    {% if i % 10 == 0 %}
+    {% if not loop.first %}
+  </div>
+  {% endif %}
+  <div class="timeline-row d-flex mb-5 align-items-center">
     {% endif %}
-    <div class="timeline-row d-flex mb-5 align-items-center">
-        {% endif %}
-        <div class="item-container">
-            <p class="timeline-number text-muted">{{ i+1 }}st</p>
-            <div class="circle-container d-flex justify-content-center align-items-center">
-                <div class="line"></div>
-                <div id="circle{{ i }}" class="circle {{ question.type }}" data-bs-html="true" data-bs-toggle="tooltip"
-                    data-bs-title="Question:<br>{{ question.title }}<br><br>Answer:<br>{{ question.answer }}"> </div>
-                <div class="line"></div>
-            </div>
-        </div>
-        {% if loop.last %}
+    <div class="item-container">
+      <p class="timeline-number text-muted">{{ i+1 }}st</p>
+      <div class="circle-container d-flex justify-content-center align-items-center">
+        <div class="line"></div>
+        <div id="circle{{ i }}" class="circle {{ question.type }}" data-bs-html="true" data-bs-toggle="tooltip"
+          data-bs-title="Question:<br>{{ question.title }}<br><br>Answer:<br>{{ question.answer }}"> </div>
+        <div class="line"></div>
+      </div>
     </div>
-    {% endif %}
-    {% endfor %}
-    <p class="text-muted text-center">Hover to see question and correct answerst</p>
+    {% if loop.last %}
+  </div>
+  {% endif %}
+  {% endfor %}
+  <p class="text-muted text-center">Hover to see question and correct answerst</p>
 </div>
 <script>
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
