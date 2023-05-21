@@ -9,7 +9,7 @@ var question
   label.setAttribute('for', 'questionDiv');
   label.textContent = question.title;
   question_div.appendChild(label);
-  for (i in [1, 2, 3, 4]) {
+  for (let i = 1; i <= 4;i++) {
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.setAttribute('id', `Option${i}`)
@@ -21,6 +21,7 @@ var question
 
 async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct)
+  console.log('Option'+correct)
   if (btn == correct_btn) {
     btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+correct], true);
