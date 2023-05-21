@@ -9,7 +9,7 @@ var question
   label.setAttribute('for', 'questionDiv');
   label.textContent = question.title;
   question_div.appendChild(label);
-  for (i in [0, 1, 2, 3]) {
+  for (i in [1, 2, 3, 4]) {
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.setAttribute('id', `Option${i}`)
