@@ -1,4 +1,10 @@
-function back() {
-  call('clear')
-  view_page('main')
+async function back() {
+  await call('clear')
+  var isAdmin = await call('db.isAdmin')
+    var username = await call('db.getUserName')
+    options = {
+      admin: isAdmin,
+      name: username
+    }
+    view_page('main', options)
 }
