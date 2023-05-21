@@ -68,7 +68,7 @@ async function button_clicked(title) {
   select.style = "width:680px;"
   for (let i = 1; i <= 4; i++) {
     let option = document.createElement('option')
-    option.setAttribute('id','option'+i
+    option.setAttribute('id','option'+i)
     option.value = i
     option.textContent = question['Option'+i]
     select.appendChild(option)
