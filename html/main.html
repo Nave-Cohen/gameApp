@@ -1,43 +1,70 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+
 <style>
   body {
-    background-color: #212529;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+
+  p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f8fd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logo img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .h1 {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #428bca;
+    text-align: center;
+  }
+
+  .form-group button {
+    padding: 10px;
+    background-color: #428bca;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
   }
 </style>
 
-<div
-  class="main d-flex flex-column justify-content-center align-items-center bg-dark"
-  style="height: 480px"
->
-  <div
-    class="form-container d-flex flex-column justify-content-center align-items-center"
-    style="
-      background-color: #edf2f4;
-      border-radius: 15px;
-      width: 319px;
-      height: 319px;
-    "
-  >
-    <h2 class="fw-bold mb-4 text-uppercase bg-dark">Welcome {{ options.name }}</h2>
-    <button
-      class="btn m-2"
-      onclick="start()"
-      style="background-color: #17a2b8; color: white"
-    >
-      Start
-    </button>
-    {% if options.admin %}
-    <button
-      class="btn m-2"
-      onclick="console.log('login as admin')"
-      style="background-color: #17a2b8; color: white"
-    >
-      Admin
-    </button>
-    {% endif %}
+<div class="main d-flex flex-column justify-content-center align-items-center" style="height: 480px;background-color":"##f2f2f2;">
+  <div class="container">
+    <div class="logo">
+      <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
+    </div>
+    <div>
+      <h1 class="fw-bold mb-4 text-uppercase" style="background-color: #17a2b8; color: white; text-align: center;">
+        Welcome {{ options.name }}</h1>
+      <div class="d-flex justify-content-center">
+        <button class="btn m-2" onclick="start()" style="background-color: #17a2b8; color: white;">Start</button>
+        {% if options.admin %}
+        <button class="btn m-2" onclick="console.log('login as admin')" style="background-color: #17a2b8; color: white;">Admin</button>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
