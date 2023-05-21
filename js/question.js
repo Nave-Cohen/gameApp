@@ -25,7 +25,7 @@ async function checkAnswer(btn, correct) {
     btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+question['correct']], true);
     await sleep(1000);
-    view_page('answer','Your answer is correct!');
+    view_page('answer', { "answer": 'Your answer is correct!' });
     await sleep(1000);
   }
   else {
@@ -33,16 +33,14 @@ async function checkAnswer(btn, correct) {
     correct_btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+question['correct']], false);
     await sleep(1000);
-    view_page('answer','Your answer is wrong!');
+    view_page('answer', { "answer": 'Your answer is wrong!' });
     await sleep(1000);
-  }
-
-    
+  }   
 }
+
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
-
 
 (async function updateProgressBar() {
   var prog = await call('progress');
@@ -50,4 +48,3 @@ function sleep (time) {
   progressBar.style.width = prog + "%";
   progressBar.setAttribute("aria-valuenow", prog);
 })();
-  
