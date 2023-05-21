@@ -23,7 +23,7 @@ async function checkAnswer(btn, correct) {
     btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+question['correct']], true);
     await sleep(1000);
-    view_page('rightAnswer');
+    view_page('answer','Your answer is correct!');
     await sleep(1000);
   }
   else {
@@ -31,7 +31,7 @@ async function checkAnswer(btn, correct) {
     correct_btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+question['correct']], false);
     await sleep(1000);
-    view_page('wrongAnswer');
+    view_page('answer','Your answer is wrong!');
     await sleep(1000);
   }
 
