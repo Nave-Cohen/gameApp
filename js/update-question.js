@@ -103,5 +103,5 @@ async function update_question() {
 }
 function input_changed(element){
 var value = element.value
- document.getElementById(element.id.toLowerCase()).value = value
+ document.getElementById(element.id.toLowerCase()).textContent = value
 }
