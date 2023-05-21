@@ -2,7 +2,9 @@ var question
 (async function gen() {
   var question_div = document.getElementById('questionDiv');
   question = await callJson('generate_question');
-
+  if (question == null){
+    call('view_timeline')
+  }
   const label = document.createElement('label');
   label.setAttribute('for', 'questionDiv');
   label.textContent = question.title;
