@@ -47,6 +47,7 @@ async function button_clicked(title) {
     answer_input.setAttribute('class', 'answers form-control')
     answer_input.setAttribute('id', 'Option' + i)
     answer_input.value = question["Option" + i]
+answer_input.setAttribute('oninput',`input_changed(${answer_input.id})`)
     answer_input.style = "width:680px;"
 
     var answer_lbl = document.createElement('label')
@@ -67,6 +68,7 @@ async function button_clicked(title) {
   select.style = "width:680px;"
   for (let i = 1; i <= 4; i++) {
     let option = document.createElement('option')
+    option.setAttribute('id','option'+i
     option.value = i
     option.textContent = "Answer " + i
     select.appendChild(option)
@@ -98,4 +100,8 @@ async function update_question() {
   var correct = document.getElementById('correct').value
   call('db.update_question', title, answers, correct)
   document.getElementById('question_div').remove()
+}
+function input_changed(element){
+var value = element.value
+ document.getElementById(element.id.toLowerCase()).value = value
 }
