@@ -26,7 +26,8 @@ async function button_clicked(title) {
   title_input.setAttribute('type', 'input')
   title_input.setAttribute('id', 'title')
   title_input.setAttribute('class', 'form-control')
-    title_input.style = "width:680px;"
+  title_input.value = question["title"]
+  title_input.style = "width:680px;"
   
   var question_lbl = document.createElement('label')
   question_lbl.setAttribute('for', 'title')
