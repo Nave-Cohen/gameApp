@@ -70,7 +70,7 @@ answer_input.setAttribute('oninput',`input_changed(${answer_input.id})`)
     let option = document.createElement('option')
     option.setAttribute('id','option'+i
     option.value = i
-    option.textContent = "Answer " + i
+    option.textContent = question['Option'+i]
     select.appendChild(option)
   }
 
