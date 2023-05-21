@@ -1,27 +1,83 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
 
-<style>body {background-color: #212529;}</style>
+  .container {
+    max-width: 400px;
+    background-color: #f5f8fd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 
-<div
-  id="main"
-  class="d-flex flex-column justify-content-center align-items-center bg-dark"
-  style="height: 480px"
->
-  <div class="form-container px-5 py-3 text-center " style="background-color: #EDF2F4;border-radius: 15px">
-    <h2 class="fw-bold mb-4 text-uppercase bg-dark">Logo</h2>
-    <i class="mb-3 fa-solid fa-circle-user" style="font-size: 45px;color: #17a2b8"></i>
-    <div class="mb-3">
+  #main {
+    background-color: #f2f2f2;
+  }
+
+  p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align:center;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .logo img {
+    width: 300px;
+    height: 200px;
+  }
+
+
+  .form-group input {
+    width:324px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+
+  .form-group button {
+    background-color: #428bca;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top:5px;
+    text-align:center;
+  }
+
+  .form-group button:hover {
+    background-color: #3071a9;
+  }
+</style>
+
+<div id="main" class="d-flex flex-column justify-content-center align-items-center" style="height: 480px">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="logo">
+      <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
+    </div>
+    <p>Welcome to the Google Colab Trivia Game! Test your knowledge of Google Colab, a popular cloud-based notebook
+      environment for Python programming.</p>
+    <p>Answer each question correctly to earn points and demonstrate your expertise in using this powerful tool.</p>
+    <div class="form-group">
       <input type="text" class="form-control" id="user-name" placeholder="Username"/>
     </div>
-    <div class="mb-3">
+
+    <div class="form-group">
       <input type="password" class="form-control" id="user-pass" placeholder="Password"/>
     </div>
-    <button class="btn mb-1" onclick="login()" style="background-color: #17a2b8;color: white">Submit</button>
-    <p id="err-msg" style="color: red"></p>
+
+    <div class="form-group">
+      <button class="btn mb-1" onclick="login()" style="background-color: #17a2b8;color: white">Submit</button>
+      <p id="err-msg" style="color: red"></p>
+    </div>
   </div>
 </div>
