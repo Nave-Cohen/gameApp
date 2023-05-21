@@ -10,6 +10,7 @@
   body {
     background-color: #f2f2f2;
     margin-top: 20px;
+    text-align:center;
   }
 
   .logo img {
@@ -29,7 +30,7 @@
     flex-grow: 1;
     width: 30px;
     height: 1px;
-    background-color: black;
+    background-color: white;
   }
 
   .circle {
@@ -83,7 +84,8 @@
   </div>
   {% endif %}
   {% endfor %}
-  <p class="text-muted text-center mb-3">Hover to see question and correct answerst</p>
+  <p class="text-muted text-center">Hover to see question and correct answerst</p>
+  <button type="button" class="btn btn-info back" onclick="back()" style="background-color:#17a2b8;">Back to main</button>
 </div>
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
