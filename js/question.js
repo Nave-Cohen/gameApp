@@ -23,7 +23,7 @@ async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct)
   if (btn == correct_btn) {
     btn.style = "background-color:green";
-    await call('submit_question', question['title'], question['Option'+question['correct']], true);
+    await call('submit_question', question['title'], question['Option'+correct], true);
     await sleep(1000);
     view_page('answer', { "answer": 'Your answer is correct!' });
     await sleep(1000);
@@ -31,16 +31,18 @@ async function checkAnswer(btn, correct) {
   else {
     btn.style = "background-color:red";
     correct_btn.style = "background-color:green";
-    await call('submit_question', question['title'], question['Option'+question['correct']], false);
+    await call('submit_question', question['title'], question['Option'+correct], false);
     await sleep(1000);
     view_page('answer', { "answer": 'Your answer is wrong!' });
     await sleep(1000);
-  }   
-}
+  }
 
+    
+}
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
+
 
 (async function updateProgressBar() {
   var prog = await call('progress');
@@ -48,3 +50,11 @@ function sleep (time) {
   progressBar.style.width = prog + "%";
   progressBar.setAttribute("aria-valuenow", prog);
 })();
+  
+function logout() {
+  view_page('login')
+  call('db.logout')
+}
+function end() {
+  call('view_timeline')
+}
