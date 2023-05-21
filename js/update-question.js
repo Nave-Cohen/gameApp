@@ -77,9 +77,9 @@ async function button_clicked(title) {
   selectLabel.textContent = "Correct Answer"
 
   var form_div = document.createElement('div');
-  form_div.setAttribute('class', 'form-group')
-  form_div.appendChild(selectLabel)
+  form_div.setAttribute('class', 'form-floating')
   form_div.appendChild(select)
+  form_div.appendChild(selectLabel)
   question_div.appendChild(form_div)
 
   var submit_btn = document.createElement('button')
