@@ -1,5 +1,5 @@
 (async function () {
-  var list = document.getElementById('dropdown-list')
+  var list = document.getElementById('dropdown-list');
   var titles = await callJson('db.getAllTitles')
   titles.forEach(title => {
     let list_item = document.createElement('li')
@@ -47,7 +47,7 @@ async function button_clicked(title) {
     answer_input.setAttribute('class', 'answers form-control')
     answer_input.setAttribute('id', 'Option' + i)
     answer_input.value = question["Option" + i]
-answer_input.setAttribute('oninput',`input_changed(${answer_input.id})`)
+    answer_input.setAttribute('oninput',`input_changed(${answer_input.id})`)
     answer_input.style = "width:680px;"
 
     var answer_lbl = document.createElement('label')
