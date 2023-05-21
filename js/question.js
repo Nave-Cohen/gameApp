@@ -21,7 +21,6 @@ var question
 
 async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct)
-  console.log('Option'+correct)
   if (btn == correct_btn) {
     btn.style = "background-color:green";
     await call('submit_question', question['title'], question['Option'+correct], true);
