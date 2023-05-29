@@ -71,7 +71,12 @@
       <div class="d-flex justify-content-center">
         <button class="btn m-2" onclick="start()" style="background-color: #17a2b8; color: white;">Start</button>
         {% if options.admin %}
-        <button class="btn m-2" onclick="view_page('admin-panel')" style="background-color: #17a2b8; color: white;">Admin</button>
+        <div class="form-group">
+            <button class="btn mb-1" onclick="view_page('update-question')" style="background-color: #5cb85c;color: white">Edit Questions</button>
+        </div>
+        <div class="form-group">
+            <button class="btn mb-1" onclick="view_page('add-question')" style="background-color: #428bca;color: white">Add New Question</button>
+        </div>
         {% endif %}
       </div>
     </div>
