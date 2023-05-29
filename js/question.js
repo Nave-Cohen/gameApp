@@ -21,17 +21,13 @@ async function checkAnswer(btn, correct) {
   if (btn === correct_btn.id) {
     btn.style.backgroundColor = "green";
     await call('submit_question', question.title, question['Option' + correct], true);
-    await sleep(1000);
-    view_page('answer', { "answer": 'Your answer is correct!' });
-    await sleep(1000);
   } else {
     btn.style.backgroundColor = "red";
     correct_btn.style.backgroundColor = "green";
     await call('submit_question', question.title, question['Option' + correct], false);
-    await sleep(1000);
-    view_page('answer', { "answer": 'Your answer is wrong!' });
-    await sleep(1000);
   }
+  await sleep(1000);
+  view_page('question');
 }
 
 function sleep(time) {
