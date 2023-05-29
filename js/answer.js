@@ -1,1 +1,0 @@
-view_page('question')
