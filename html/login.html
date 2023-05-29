@@ -6,13 +6,6 @@
 <style>
   body {
     background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-  }
-
-  .container {
-    max-width: 400px;
-    background-color: #f5f8fd;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
 
   #main {
@@ -24,7 +17,7 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
-    text-align:center;
+    text-align: center;
   }
 
   .logo {
@@ -36,48 +29,83 @@
     height: 200px;
   }
 
+  .form-group {
+    margin-bottom: 15px;
+  }
 
   .form-group input {
-    width:324px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    margin-bottom: 5px;
+    width: 324px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .form-group button {
-    background-color: #428bca;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top:5px;
-    text-align:center;
+  .main-container {
+    background-color: white;
+    display: flex;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    align-items: center;
   }
 
-  .form-group button:hover {
-    background-color: #3071a9;
+  .child {
+    width: 50%;
+    text-align: center;
+
+  }
+
+  .child.content p {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+  }
+
+  .child.img {
+    height: 100%;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    background-image: url('https://i.ibb.co/vzY1cTj/2718229.jpg');
+    background-size: cover;
+  }
+  .child.img h1{
+    font-weight: bold;
+    color:white;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  img {
+    width:180px;
+    height:auto;
+    padding-bottom:20px;
   }
 </style>
 
-<div id="main" class="d-flex flex-column justify-content-center align-items-center" style="height: 480px">
-  <div class="container d-flex flex-column justify-content-center align-items-center">
-    <div class="logo">
-      <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
+<div id="main" class="d-flex flex-column justify-content-center align-items-center" style="height: 680px">
+  <div class="main-container">
+    <div class="child img">
+      <h1 class="display-1">Welcome Back</h1>
     </div>
-    <p>Welcome to the Google Colab Trivia Game! Test your knowledge of Google Colab, a popular cloud-based notebook
-      environment for Python programming.</p>
-    <p>Answer each question correctly to earn points and demonstrate your expertise in using this powerful tool.</p>
-    <div class="form-group">
-      <input type="text" class="form-control" id="user-name" placeholder="Username"/>
-    </div>
+    <div class="child content">
+      <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+      <p>Welcome to the Google Colab Trivia Game! 
+        Test your knowledge of Google Colab, a popular cloud-based notebook
+        environment for Python programming.
+        Answer each question correctly to earn points and demonstrate your expertise in using this powerful tool.</p>
+      <div class="form-group">
+        <input type="text" class="form-control" id="user-name" placeholder="Username"/>
+      </div>
 
-    <div class="form-group">
-      <input type="password" class="form-control" id="user-pass" placeholder="Password"/>
-    </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="user-pass" placeholder="Password"/>
+      </div>
 
-    <div class="form-group">
-      <button class="btn mb-1" onclick="login()" style="background-color: #17a2b8;color: white">Submit</button>
-      <p id="err-msg" style="color: red"></p>
+      <div class="form-group">
+        <button type="button" class="btn" onclick="login()" style="background-color:#1d3557;color:white;">Submit</button>
+        <p id="err-msg" style="color: red"></p>
+      </div>
     </div>
   </div>
 </div>
