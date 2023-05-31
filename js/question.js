@@ -13,12 +13,8 @@ var question;
     question_div.innerHTML += `
       <button type="button" id="Option${i}" onclick="checkAnswer(this, ${question.correct})">${question["Option" + i]}</button>`;
   }
-  var buttonElement = document.createElement('button');
-  buttonElement.setAttribute('type', 'button');
-  buttonElement.setAttribute('class', 'btn finish-btn');
-  buttonElement.setAttribute('onclick', 'end()');
-  buttonElement.textContent = 'Finish';
-  document.querySelector(".main-container").appendChild(buttonElement);
+  document.querySelector(".progress").classList.toggle('d-none');
+  document.querySelector(".finish-btn").classList.toggle('d-none');
 })();
 
 async function checkAnswer(btn, correct) {
