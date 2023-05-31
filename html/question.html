@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+        background-color: white;
+        width: 940px;
+        height: 580px;
+        border-radius: 15px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: cursive;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #ba03fc;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .form-group button {
+        width: 90%;
+        padding: 10px;
+        background-color: #1d3557;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+    .form-group button:hover {
+        background-color: #ba03fc;
+    }
+
+
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+
+    img {
+        width: 180px;
+        height: auto;
+        padding-bottom: 20px;
+        position: relative;
+        top: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .finish-btn {
+        display: block;
+        margin: 10px auto;
+        background-color: #ba03fc;
+        color: white;
+        width: auto;
+        font-family: cursive;
+    }
+    .finish-btn:hover{
+      background-color: #1d3557;
+    }
+    .progress {
+      width:750px;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top: 50px;
+      margin-bottom:20px;
+    }
+</style>
+<div id="main" style="height: 680px">
+    <div class="main-container">
+        <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i
+                class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+        <form>
+            <div id="questionDiv" class="form-group"></div>
+        </form>
+        <div class="progress d-none">
+            <div class="progress-bar" role="progressbar" style="width: 0%;background-color:#ba03fc" aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+          <button type="button" class="btn finish-btn d-none" onclick="end()">Finish</button>
+    </div>
+</div>

@@ -1,19 +1,103 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-<style>body {background-color: #212529;}</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div
-  class="main d-flex flex-column justify-content-center align-items-center bg-dark"
-  style="height: 480px"
->
-  <div class="form-container d-flex flex-column justify-content-center align-items-center" style="background-color: #EDF2F4;border-radius: 15px;width:319px;height:319px">
-    <div id="spinner" class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+<style>
+  body {
+    background-color: #f2f2f2;
+    font-family: cursive;
+  }
+
+  .main-container {
+    background-color: white;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  img {
+    width: 120px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+
+  .panel-btn {
+    width: 160px;
+    height: 80px;
+    font-size:20px;
+    background-color: #03cefc;
+    font-family: cursive;
+    margin: 1rem auto;
+    display:block;
+  }
+
+  .panel-btn:hover {
+    background-color: #ba03fc;
+    color:white;
+    font-size:25px;
+    width: 200px;
+    height: 100px;
+    transition: all 0.5s ease-out;
+  }
+
+  .btn {
+    color: white;
+  }
+
+  .icon-btn {
+    margin-right: 10px;
+  }
+
+  .btn-part{
+    background-color: #1d3557;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+</style>
+
+<div id="main" style="height: 680px">
+  <div class="main-container">
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+    <div class="btn-part">
+        <h1 class="fw-bold py-2 text-uppercase" style="color: white;">
+          Welcome {{ options.name }}</h1>
+      {% if not options.admin %}
+      <h2 class="fw-bold my-3 text-uppercase" style="color: white;">
+        Are you ready to play? </h2>
+      {% endif %}
+        <button id="start-btn" class="btn panel-btn" onclick="start()"><i
+            class="icon-btn fa-solid fa-play"></i>Start</button>
+      {% if options.admin %}
+        <button id="edit-btn" class="btn panel-btn" onclick="view_page('update-question')"><i
+            class="icon-btn fa-regular fa-pen-to-square"></i>Edit Questions</button>
+        <button id="add-btn" class="btn panel-btn" onclick="view_page('add-question')"><i
+            class="icon-btn fa-solid fa-plus"></i>Add New Question</button>
+      {% endif %}
     </div>
-    <button id="start-btn" class="btn m-2 d-none" onclick="console.log('login as user')" style="background-color: #17a2b8;color: white">Start</button>
-    <button id="admin-btn" class="btn m-2 d-none" onclick="console.log('login as admin')" style="background-color: #17a2b8;color: white">Admin</button>
   </div>
 </div>
