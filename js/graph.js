@@ -1,6 +1,6 @@
 (async function getValues() {
-  var xValues = ["Wrong answers", "Correct answers"];
   var results = await callJson('graph_values');
+  var xValues = ["Wrong answers - "+results.wrong, "Correct answers - "+results.correct];
   var yValues = [results.wrong, results.correct];
   var barColors = ["red", "green"];
 
