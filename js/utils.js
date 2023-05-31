@@ -2,7 +2,7 @@ async function call(function_name) {
   args = [...arguments].splice(1)
   var res = await google.colab.kernel.invokeFunction(function_name, args, {})
   if (res == null) { return }
-  const outputString = res.data['text/plain'].trim();
+  const outputString = res.data['text/plain'].split("'").join("").trim();
   if (outputString === 'True') {
     return true;
   } else if (outputString === 'False') {
