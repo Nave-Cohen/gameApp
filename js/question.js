@@ -11,21 +11,28 @@ var question;
   `;
   for (let i = 1; i <= 4; i++) {
     question_div.innerHTML += `
-      <button type="button" id="Option${i}" onclick="checkAnswer(this, ${question.correct})">${question["Option" + i]}</button>
-    `;
+      <button type="button" id="Option${i}" onclick="checkAnswer(this, ${question.correct})">${question["Option" + i]}</button>`;
   }
+  var buttonElement = document.createElement('button');
+  buttonElement.setAttribute('type', 'button');
+  buttonElement.setAttribute('class', 'btn finish-btn');
+  buttonElement.setAttribute('onclick', 'end()');
+  buttonElement.textContent = 'Finish';
+  document.querySelector(".main-container").appendChild(buttonElement);
 })();
 
 async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct);
+  var type;
   if (btn === correct_btn.id) {
     btn.style.backgroundColor = "green";
-    await call('submit_question', question.title, question['Option' + correct], true);
+    type = "correct-answer";
   } else {
     btn.style.backgroundColor = "red";
     correct_btn.style.backgroundColor = "green";
-    await call('submit_question', question.title, question['Option' + correct], false);
+    type = "wrong-answer";
   }
+  await call('submit_question', question.title, question['Option' + correct], type);
   await sleep(1000);
   view_page('question');
 }
