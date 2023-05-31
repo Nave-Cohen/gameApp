@@ -89,7 +89,9 @@ async function button_clicked(title) {
   submit_btn.setAttribute('id', 'submit_btn')
   submit_btn.setAttribute('class', 'btn btn-primary')
   submit_btn.setAttribute('onclick', 'update_question()')
-  submit_btn.textContent = 'Submit'
+  submit_btn.style.background = '#1d3557';
+  submit_btn.style.color = 'white';
+  submit_btn.textContent = 'Submit';
 
   question_div.appendChild(submit_btn)
   container.appendChild(question_div)
