@@ -7,6 +7,7 @@
 <style>
   body {
     background-color: #f2f2f2;
+    font-family: cursive;
   }
 
   .main-container {
@@ -44,19 +45,21 @@
   }
 
   .panel-btn {
-    width: 200px;
-    height: 100px;
+    width: 160px;
+    height: 80px;
+    font-size:20px;
     background-color: #03cefc;
     font-family: cursive;
-    font-weight: bold;
+    margin: 1rem auto;
+    display:block;
   }
 
   .panel-btn:hover {
     background-color: #ba03fc;
     color:white;
     font-size:25px;
-    width: 220px;
-    height: 120px;
+    width: 200px;
+    height: 100px;
     transition: all 0.5s ease-out;
   }
 
@@ -68,35 +71,32 @@
     margin-right: 10px;
   }
 
-  .container-fluid {
+  .btn-part{
     background-color: #1d3557;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
+    text-align: center;
+    padding: 10px 0;
   }
+
 </style>
 
 <div id="main" style="height: 680px">
   <div class="main-container">
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <div class="container-fluid">
-      <div class="row py-4">
-        <h1 class="fw-bold text-uppercase" style="color: white; text-align: center;font-family: cursive;">
+    <div class="btn-part">
+        <h1 class="fw-bold py-2 text-uppercase" style="color: white;">
           Welcome {{ options.name }}</h1>
-      </div>
-      <div class="row my-3">
-        <button id="start-btn" class="btn panel-btn mx-auto" onclick="start()"><i
+      {% if not options.admin %}
+      <h2 class="fw-bold my-3 text-uppercase" style="color: white;">
+        Are you ready to play? </h2>
+      {% endif %}
+        <button id="start-btn" class="btn panel-btn" onclick="start()"><i
             class="icon-btn fa-solid fa-play"></i>Start</button>
-      </div>
       {% if options.admin %}
-      <div class="row my-3">
-        <button id="edit-btn" class="btn panel-btn mx-auto" onclick="view_page('update-question')"><i
+        <button id="edit-btn" class="btn panel-btn" onclick="view_page('update-question')"><i
             class="icon-btn fa-regular fa-pen-to-square"></i>Edit Questions</button>
-      </div>
-      <div class="row mt-3 pb-3">
-        <button id="add-btn" class="btn panel-btn mx-auto" onclick="view_page('add-question')"><i
+        <button id="add-btn" class="btn panel-btn" onclick="view_page('add-question')"><i
             class="icon-btn fa-solid fa-plus"></i>Add New Question</button>
-      </div>
       {% endif %}
     </div>
   </div>
