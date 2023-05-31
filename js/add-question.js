@@ -13,5 +13,12 @@ async function addQuestion() {
   var data = { 'title': question, 'Option1': opt1, 'Option2': opt2, 'Option3': opt3, 'Option4': opt4, 'correct': correct };
 
   var result = await call('db.addQuest', data)
-  console.log(result)
+  if (result == true) {
+    var msg = document.createElement("p");
+    msg.id = "msg";
+    msg.className = "text-center";
+    msg.style.color = "green";
+    msg.textContent = "Answer added successfully";
+    document.querySelector('#main-container').appendChild(msg);
+  }
 }
