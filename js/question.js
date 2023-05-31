@@ -20,7 +20,7 @@ var question;
 async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct);
   var type;
-  if (btn === correct_btn.id) {
+  if (btn.id === correct_btn.id) {
     btn.style.backgroundColor = "green";
     type = "correct-answer";
   } else {
