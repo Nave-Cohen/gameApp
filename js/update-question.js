@@ -107,3 +107,13 @@ function input_changed(element){
 var value = element.value
  document.getElementById(element.id.toLowerCase()).textContent = value
 }
+async function back() {
+  await call('clear')
+  var isAdmin = await call('db.isAdmin')
+  var username = await call('db.getUserName')
+  options = {
+    admin: isAdmin,
+    name: username
+  }
+  view_page('main', options)
+}
