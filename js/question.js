@@ -6,13 +6,14 @@ var question;
   if (question == null) {
     call('view_timeline');
   }
-  question_div.innerHTML = `
-    <label for="questionDiv">${question.title}</label>
-  `;
+var str = `
+    <label for="questionDiv">${question.title}</label>`;
   for (let i = 1; i <= 4; i++) {
-    question_div.innerHTML += `
+    str += `
       <button type="button" id="Option${i}" onclick="checkAnswer(this, ${question.correct})">${question["Option" + i]}</button>`;
   }
+  document.querySelector("#spinner").classList.toggle('d-none');
+  question_div.innerHTML = str;
   document.querySelector(".progress").classList.toggle('d-none');
   document.querySelector(".finish-btn").classList.toggle('d-none');
 })();
