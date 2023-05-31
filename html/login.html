@@ -19,7 +19,19 @@
     margin-bottom: 10px;
     text-align: center;
   }
-
+  p , .login-btn{
+    font-family: cursive;
+  }
+  .login-btn{
+    width:79px;
+    height:38px;
+    transition: all 0.5s ease-out;
+  }
+  .login-btn:hover{
+    width:85px;
+    height:42px;
+    font-size:18px;
+  }
   .logo {
     text-align: center;
   }
@@ -103,7 +115,7 @@
       </div>
 
       <div class="form-group">
-        <button type="button" class="btn" onclick="login()" style="background-color:#1d3557;color:white;">Submit</button>
+        <button type="button" class="btn login-btn" onclick="login()" style="background-color:#1d3557;color:white;">Submit</button>
         <p id="err-msg" style="color: red"></p>
       </div>
     </div>
