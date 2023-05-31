@@ -22,11 +22,11 @@
   }
 
   img {
-    width: 180px;
+    width: 120px;
     height: auto;
     padding-bottom: 20px;
     position: relative;
-    top: 18%;
+    top: 13%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -35,44 +35,69 @@
     position: absolute;
     top: 5%;
     left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
   }
 
   .panel-btn {
     width: 200px;
     height: 100px;
-    background-color:white;
+    background-color: #03cefc;
+    font-family: cursive;
+    font-weight: bold;
   }
-  .btn{
+
+  .panel-btn:hover {
+    background-color: #ba03fc;
     color:white;
+    font-size:25px;
+    width: 220px;
+    height: 120px;
+    transition: all 0.5s ease-out;
   }
-  #start-btn{
-      background-color: #3B71CA;
+
+  .btn {
+    color: white;
   }
-  #edit-btn{
-    background-color: #14A44D;
+
+  i {
+    margin-right: 10px;
   }
-  #add-btn{
-    background-color:#54B4D3;
+
+  .container-fluid {
+    background-color: #1d3557;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
   }
 </style>
 
 <div id="main" style="height: 680px">
   <div class="main-container">
-    <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <h1 class="fw-bold mb-3 text-uppercase" style="background-color: #17a2b8; color: white; text-align: center;">
-      Welcome {{ options.name }}</h1>
-    <div class="row my-2">
-      <button id="start-btn" class="btn panel-btn mx-auto" onclick="start()"><i
-                    class="fa-solid fa-play"></i>Start</button>
+    <div class="container-fluid">
+      <div class="row py-4">
+        <h1 class="fw-bold text-uppercase" style="color: white; text-align: center;font-family: cursive;">
+          Welcome {{ options.name }}</h1>
+      </div>
+      <div class="row my-3">
+        <button id="start-btn" class="btn panel-btn mx-auto" onclick="start()"><i
+            class="fa-solid fa-play"></i>Start</button>
+      </div>
+      {% if options.admin %}
+      <div class="row my-3">
+        <button id="edit-btn" class="btn panel-btn mx-auto" onclick="view_page('update-question')"><i
+            class="fa-regular fa-pen-to-square"></i>Edit Questions</button>
+      </div>
+      <div class="row mt-3 pb-3">
+        <button id="add-btn" class="btn panel-btn mx-auto" onclick="view_page('add-question')"><i
+            class="fa-solid fa-plus"></i>Add New Question</button>
+      </div>
+      {% endif %}
     </div>
-    {% if options.admin %}
-    <div class="row my-2">
-      <button id="edit-btn" class="btn panel-btn mx-auto" onclick="view_page('update-question')"><i class="fa-regular fa-pen-to-square"></i>Edit Questions</button>
-    </div>
-    <div class="row my-2">
-      <button id="add-btn" class="btn panel-btn mx-auto" onclick="view_page('add-question')"><i class="fa-solid fa-plus"></i>Add New Question</button>
-    </div>
-    {% endif %}
   </div>
 </div>
