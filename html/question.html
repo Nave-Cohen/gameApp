@@ -56,17 +56,6 @@
   }
 
 
-  #logout-btn {
-    position: absolute;
-    top: 5%;
-    left: 95%;
-    background-color: #d9534f;
-    font-size: 30px;
-    padding: 6px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-  }
 
   img {
     width: 180px;
@@ -74,7 +63,7 @@
     padding-bottom: 20px;
     position: relative;
     top: 18%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
   }
 
@@ -99,29 +88,76 @@
     margin-top: 50px;
     margin-bottom: 20px;
   }
-  #spinner{
+
+  #spinner {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
   }
-  .home-btn{
+
+  .home-btn {
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 6%;
+    left: 6%;
     background-color: #1d3557;
     font-size: 30px;
     padding: 6px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
   }
 
+  #logout-btn {
+    position: absolute;
+    top: 6%;
+    left: 95%;
+    background-color: #d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .help-btn {
+    position: absolute;
+    left: 1%;
+    bottom: 5%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+
+
+  .phone-number {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 160px;
+    padding: 5px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: cursive;
+    transform: translateY(-50%);
+  }
+
+  .help-btn:hover .phone-number {
+    display: block;
+  }
 </style>
 <div id="main" style="height: 680px">
   <div class="main-container">
     <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
     <form>
       <div id="questionDiv" class="form-group"></div>
