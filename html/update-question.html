@@ -7,13 +7,14 @@
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   .body {
     background-color: #f2f2f2;
   }
-  #main{
+
+  #main {
     background-color: #f2f2f2;
   }
 
@@ -44,6 +45,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
   img {
     width: 120px;
     height: auto;
@@ -53,20 +55,36 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-    .colored-part {
+
+  .colored-part {
     background-color: #1d3557;
     padding: 15px 0;
   }
-  #dropdown-btn{
+
+  #dropdown-btn {
     padding: 10px 10px;
     position: relative;
     left: 43%;
-    background-color:#ba03fc;
-    color:white;
+    background-color: #ba03fc;
+    color: white;
   }
-  #logout-btn {
+
+
+  .home-btn {
     position: absolute;
     top: 5%;
+    left: 6%;
+    background-color: #1d3557;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #logout-btn {
+    position: absolute;
+    top: 7%;
     left: 95%;
     background-color:#d9534f;
     font-size: 30px;
@@ -75,31 +93,57 @@
     border-radius: 10px;
     cursor:pointer;
   }
-  .home-btn{
+
+    .help-btn {
     position: absolute;
     top: 5%;
-    left: 5%;
-    background-color: #1d3557;
+    left: 1%;
+    background-color: orange;
     font-size: 30px;
     padding: 6px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
   }
+
+  .help-btn {
+  /* Existing styles */
+  position: relative;
+}
+
+.phone-number {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 160px;
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-family: cursive;
+  transform: translateY(-50%);
+}
+
+.help-btn:hover .phone-number {
+  display: block;
+}
 </style>
 <div id="main" style="height: 680px">
   <div class="wrapper vh-100">
     <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <div id="main-container">
-    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <div class="colored-part">
-      <div id="dropdown_id" class="dropdown">
-        <button id="dropdown-btn" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+      <div class="colored-part">
+        <div id="dropdown_id" class="dropdown">
+          <button id="dropdown-btn" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Select question
         </button>
-        <ul id="dropdown-list" class="dropdown-menu">  </ul>
+          <ul id="dropdown-list" class="dropdown-menu"> </ul>
         </div>
       </div>
     </div>
