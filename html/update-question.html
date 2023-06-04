@@ -6,43 +6,102 @@
   integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   .body {
     background-color: #f2f2f2;
   }
-
-  .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .logo img {
-    width: 300px;
-    height: 200px;
+  #main{
+    background-color: #f2f2f2;
   }
 
   #submit_btn {
     margin-top: 10px;
   }
+
   #dropdown-btn {
     margin-bottom: 5px;
   }
-  li { background: white; }
-li:nth-child(odd) { background: #f2f2f2; }
-</style>
 
-<div id="main-container" class="main d-flex flex-column justify-content-center align-items-center"
-  style="height: 100%;width:100%;background-color:#f2f2f2;">
-    <div class="logo">
-      <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
-    </div>
-    <div id="dropdown_id" class="dropdown">
-      <button id="dropdown-btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+  li {
+    background: white;
+  }
+
+  li:nth-child(odd) {
+    background: #f2f2f2;
+  }
+
+  .wrapper {
+    background-color: white;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  img {
+    width: 120px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+    .colored-part {
+    background-color: #1d3557;
+    padding: 15px 0;
+  }
+  #dropdown-btn{
+    padding: 10px 10px;
+    position: relative;
+    left: 43%;
+    background-color:#ba03fc;
+    color:white;
+  }
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+  .home-btn{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: #1d3557;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;  
+  }
+</style>
+<div id="main" style="height: 680px">
+  <div class="wrapper vh-100">
+    <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <div id="main-container">
+    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+    <div class="colored-part">
+      <div id="dropdown_id" class="dropdown">
+        <button id="dropdown-btn" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Select question
         </button>
-      <ul id="dropdown-list" class="dropdown-menu">
-
-      </ul>
+        <ul id="dropdown-list" class="dropdown-menu">  </ul>
+        </div>
+      </div>
     </div>
   </div>
+</div>

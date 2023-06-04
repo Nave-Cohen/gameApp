@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body {
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  img {
+    width: 180px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .main-container {
+    background-color: white;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #graph{
+    width:100%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color: #d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+.btn-back {
+  text-align:center;
+  background-color:#8c03fc;
+  color:white;
+  height: 45px;
+  margin-top: 50px;
+  }
+</style>
+
+<div id="main" style="height: 680px">
+  <div class="main-container">
+    <canvas id="graph"></canvas>
+    <button type="button" class="btn btn-back" onclick="back()">Back to main</button>
+  </div>
+</div>

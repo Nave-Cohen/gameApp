@@ -89,7 +89,9 @@ async function button_clicked(title) {
   submit_btn.setAttribute('id', 'submit_btn')
   submit_btn.setAttribute('class', 'btn btn-primary')
   submit_btn.setAttribute('onclick', 'update_question()')
-  submit_btn.textContent = 'Submit'
+  submit_btn.style.background = '#1d3557';
+  submit_btn.style.color = 'white';
+  submit_btn.textContent = 'Submit';
 
   question_div.appendChild(submit_btn)
   container.appendChild(question_div)
@@ -104,4 +106,14 @@ async function update_question() {
 function input_changed(element){
 var value = element.value
  document.getElementById(element.id.toLowerCase()).textContent = value
+}
+async function back() {
+  await call('clear')
+  var isAdmin = await call('db.isAdmin')
+  var username = await call('db.getUserName')
+  options = {
+    admin: isAdmin,
+    name: username
+  }
+  view_page('main', options)
 }

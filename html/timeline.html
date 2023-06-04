@@ -2,26 +2,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
   integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-  integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   body {
     background-color: #f2f2f2;
     margin-top: 20px;
-    text-align:center;
+    text-align: center;
   }
 
-  .logo img {
-    width: 300px;
-    height: 200px;
+  img {
+    width: 120px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .colored-part {
+    background-color: #1d3557;
+     font-family: cursive;
   }
 
   .item-container {
     text-align: center;
     max-width: 148px;
     word-wrap: break-word;
+  }
+
+    .timeline-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .line {
@@ -39,11 +52,29 @@
     border-radius: 50%;
     outline: 2px dashed;
     outline-offset: 5px;
+    justify-content: center;
+    align-items: center;
+    
   }
 
   .timeline-number,
   .display-6 {
     padding-bottom: 10px;
+    color: white;
+    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+    font-family: cursive;
+  }
+
+  .main-container {
+    background-color: white;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .circle.correct-answer {
@@ -55,37 +86,56 @@
     background-color: rgba(255, 62, 48, 0.8);
     outline-color: rgba(255, 62, 48, 0.9);
   }
+
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+  .text {
+    color: white; /* Set the text color to white */
+  }
 </style>
-<div class="main d-flex flex-column justify-content-center align-items-center" style="height: 480px;background-color"
-  :"#f2f2f2">
-  <div class="logo">
-    <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
-  </div>
-  <h1 class="display-6">Question Timeline</h1>
-  <div class="timeline-container" style="background-color" :"#f2f2f2">
-    {% for i in range(options|length) %} {% set
-    question = options[i] %}
-    {% if i % 10 == 0 %}
-    {% if not loop.first %}
-  </div>
-  {% endif %}
-  <div class="timeline-row d-flex mb-5 align-items-center">
-    {% endif %}
-    <div class="item-container">
-      <p class="timeline-number text-muted">{{ i+1 }}st</p>
-      <div class="circle-container d-flex justify-content-center align-items-center">
-        <div class="line"></div>
-        <div id="circle{{ i }}" class="circle {{ question.type }}" data-bs-html="true" data-bs-toggle="tooltip"
-          data-bs-title="Question:<br>{{ question.title }}<br><br>Answer:<br>{{ question.answer }}"> </div>
-        <div class="line"></div>
+
+<div id="main" style="height: 680px">
+  <div class="main-container">
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+    <div class="colored-part overflow-auto">
+      <h1 class="display-6">Question Timeline</h1>
+      <div class="timeline-container" style="background-color" :"#f2f2f2">
+        {% for i in range(options|length) %} {% set
+        question = options[i] %}
+        {% if i % 7 == 0 %}
+        {% if not loop.first %}
       </div>
+      {% endif %}
+      <div class="timeline-row d-flex mb-5 align-items-center">
+        {% endif %}
+        <div class="item-container">
+          <p class="text">{{ i+1 }}st</p>
+          <div class="circle-container d-flex justify-content-center align-items-center">
+            <div class="line"></div>
+            <div id="circle{{ i }}" class="circle {{ question.type }}" data-bs-html="true" data-bs-toggle="tooltip"
+              data-bs-title="Question:<br>{{ question.title }}<br><br>Answer:<br>{{ question.answer }}"> </div>
+            <div class="line"></div>
+          </div>
+        </div>
+        {% if loop.last %}
+      </div>
+      {% endif %}
+      {% endfor %}
     </div>
-    {% if loop.last %}
+    <p class="text">Hover to see question and correct answerst</p>
+    <button type="button" class="btn" onclick="view_page('graph')" style="background-color:#8c03fc;color:white;margin-bottom:50px;">View Graph</button>
+    <button type="button" class="btn back" onclick="back()" style="background-color:#8c03fc;color:white;margin-bottom:50px;">Back to main</button>
   </div>
-  {% endif %}
-  {% endfor %}
-  <p class="text-muted text-center">Hover to see question and correct answerst</p>
-  <button type="button" class="btn btn-info back" onclick="back()" style="background-color:#17a2b8;margin-bottom:50px;">Back to main</button>
 </div>
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
