@@ -98,6 +98,36 @@
     border-radius: 10px;
     cursor:pointer;
   }
+
+    .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .phone-number {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 160px;
+    padding: 5px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: cursive;
+    transform: translateY(-50%);
+  }
+
+  .help-btn:hover .phone-number {
+    display: block;
+  }
   .text {
     color: white; /* Set the text color to white */
   }
@@ -106,6 +136,8 @@
 <div id="main" style="height: 680px">
   <div class="main-container">
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
     <div class="colored-part overflow-auto">
       <h1 class="display-6">Question Timeline</h1>
