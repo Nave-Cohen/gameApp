@@ -1,40 +1,119 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+  integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
+  integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 
 <style>
   body {
     background-color: #f2f2f2;
-    font-family: cursive;
+    font-family: Arial, sans-serif;
   }
 
-  .main-container {
+  .container {
     background-color: white;
     width: 940px;
     height: 580px;
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
     position: relative;
-    left: 50%;
+    left: 38%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
 
   img {
-    width: 120px;
+    width: 180px;
     height: auto;
     padding-bottom: 20px;
     position: relative;
-    top: 13%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
   }
 
-  #logout-btn {
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-family: cursive;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+    flex: 0 0 30%;
+    font-size: 20px;
+  }
+
+  .colored-part {
+    background-color: #1d3557;
+    /* Change the background color here */
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  .form-group select,
+  .form-group input {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    flex: 0 0 70%;
+    /* Adjust the width of the input/select as needed */
+  }
+
+  .form-group button {
+    padding: 7px;
+    background-color: #8c03fc;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .form-group button.delete {
+    background-color: #d9534f;
+  }
+
+  .form-group button:hover {
+    background-color: #3071a9;
+  }
+
+
+  h4 {
+    color: #8c03fc;
+    position: fixed;
+    bottom: 70%;
+    margin-right: 20px;
+    font-family: cursive;
+  }
+
+  .home-btn {
     position: absolute;
     top: 5%;
+    left: 7%;
+    background-color: #1d3557;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+    #logout-btn {
+    position: absolute;
+    top: 7%;
     left: 95%;
     background-color:#d9534f;
     font-size: 30px;
@@ -44,60 +123,89 @@
     cursor:pointer;
   }
 
-  .panel-btn {
-    width: 160px;
-    height: 80px;
-    font-size:20px;
-    background-color: #03cefc;
-    font-family: cursive;
-    margin: 1rem auto;
-    display:block;
-  }
-
-  .panel-btn:hover {
-    background-color: #ba03fc;
-    color:white;
-    font-size:25px;
-    width: 200px;
-    height: 100px;
-    transition: all 0.5s ease-out;
-  }
-
-  .btn {
+    .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
     color: white;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
-  .icon-btn {
-    margin-right: 10px;
-  }
+  .help-btn {
+  /* Existing styles */
+  position: relative;
+}
 
-  .btn-part{
-    background-color: #1d3557;
-    text-align: center;
-    padding: 10px 0;
-  }
+.phone-number {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 160px;
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-family: cursive;
+  transform: translateY(-50%);
+}
 
+.help-btn:hover .phone-number {
+  display: block;
+}
 </style>
 
 <div id="main" style="height: 680px">
-  <div class="main-container">
+  <div id="main-container" class="container">
+    <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
-    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <div class="btn-part">
-        <h1 class="fw-bold py-2 text-uppercase" style="color: white;">
-          Welcome {{ options.name }}</h1>
-      {% if not options.admin %}
-      <h2 class="fw-bold my-3 text-uppercase" style="color: white;">
-        Are you ready to play? </h2>
-      {% endif %}
-        <button id="start-btn" class="btn panel-btn" onclick="start()"><i
-            class="icon-btn fa-solid fa-play"></i>Start</button>
-      {% if options.admin %}
-        <button id="edit-btn" class="btn panel-btn" onclick="view_page('update-question')"><i
-            class="icon-btn fa-regular fa-pen-to-square"></i>Edit Questions</button>
-        <button id="add-btn" class="btn panel-btn" onclick="view_page('add-question')"><i
-            class="icon-btn fa-solid fa-plus"></i>Add New Question</button>
-      {% endif %}
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+      <h4>Add New Question:</h4>
+    </div>
+    <div class="colored-part">
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <input type="text" id="question" required>
+      </div>
+
+      <div class="form-group">
+        <label for="answer1">Answer 1:</label>
+        <input type="text" id="answer1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="answer2">Answer 2:</label>
+        <input type="text" id="answer2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="answer3">Answer 3:</label>
+        <input type="text" id="answer3" required>
+      </div>
+
+      <div class="form-group">
+        <label for="answer4">Answer 4:</label>
+        <input type="text" id="answer4" required>
+      </div>
+      <div class="form-group">
+        <label for="correct">Correct Answer:</label>
+        <select id="correct">
+                    <option value="1">Answer 1</option>
+                    <option value="2">Answer 2</option>
+                    <option value="3">Answer 3</option>
+                    <option value="4">Answer 4</option>
+                </select>
+      </div>
+    </div>
+    <div class="form-group pb-2">
+      <button type="submit" onclick="addQuestion()">Submit</button>
     </div>
   </div>
 </div>
