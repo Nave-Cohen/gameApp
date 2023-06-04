@@ -22,7 +22,7 @@
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
     position: relative;
-    left: 30%;
+    left: 38%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
@@ -51,8 +51,6 @@
     flex: 0 0 30%;
     font-size: 20px;
   }
-
-
 
   .colored-part {
     background-color: #1d3557;
@@ -92,18 +90,6 @@
     background-color: #3071a9;
   }
 
-  #logout-btn {
-    position: absolute;
-    top: 5%;
-    left: 95%;
-    background-color: #d9534f;
-    font-size: 30px;
-    padding: 6px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
 
   h4 {
     color: #8c03fc;
@@ -112,22 +98,72 @@
     margin-right: 20px;
     font-family: cursive;
   }
-  .home-btn{
+
+  .home-btn {
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 7%;
     background-color: #1d3557;
     font-size: 30px;
     padding: 6px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
   }
+
+    #logout-btn {
+    position: absolute;
+    top: 7%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+
+    .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .help-btn {
+  /* Existing styles */
+  position: relative;
+}
+
+.phone-number {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 160px;
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-family: cursive;
+  transform: translateY(-50%);
+}
+
+.help-btn:hover .phone-number {
+  display: block;
+}
 </style>
 
 <div id="main" style="height: 680px">
   <div id="main-container" class="container">
     <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <div style="display: flex; align-items: center; justify-content: space-between;">
       <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
