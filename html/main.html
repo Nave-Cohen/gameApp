@@ -1,8 +1,15 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
 <style>
   body {
@@ -36,28 +43,28 @@
     position: absolute;
     top: 7%;
     left: 95%;
-    background-color:#d9534f;
+    background-color: #d9534f;
     font-size: 30px;
     padding: 6px;
     color: white;
     border-radius: 10px;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .panel-btn {
     width: 160px;
     height: 80px;
-    font-size:20px;
+    font-size: 20px;
     background-color: #03cefc;
     font-family: cursive;
     margin: 1rem auto;
-    display:block;
+    display: block;
   }
 
   .panel-btn:hover {
     background-color: #ba03fc;
-    color:white;
-    font-size:25px;
+    color: white;
+    font-size: 25px;
     width: 200px;
     height: 100px;
     transition: all 0.5s ease-out;
@@ -71,13 +78,14 @@
     margin-right: 10px;
   }
 
-  .btn-part{
+  .btn-part {
     background-color: #1d3557;
     text-align: center;
     padding: 10px 0;
+    width: 260px;
   }
 
-    .help-btn {
+  .help-btn {
     position: absolute;
     left: 1%;
     background-color: orange;
@@ -89,52 +97,106 @@
   }
 
   .help-btn {
-  /* Existing styles */
-  position: relative;
-}
+    /* Existing styles */
+    position: relative;
+  }
 
-.phone-number {
-  display: none;
-  position: absolute;
-  top: 50%;
-  width: 160px;
-  padding: 5px;
-  background-color: orange;
-  color: white;
-  text-align: center;
-  font-size: 14px;
-  font-family: cursive;
-  transform: translateY(-50%);
-}
-
-.help-btn:hover .phone-number {
-  display: block;
-}
-
+  .phone-number {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 93%;
+    width: 160px;
+    padding: 5px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: cursive;
+    transform: translateY(-50%);
+  }
+  .second-container {
+    background-color: #1d3557;
+  }
+  .sessions {
+    border: 1px solid white;
+    width: 260px;
+    height: 282px;
+    max-height: 282px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+  }
+  #score-title {
+    font-family: cursive;
+    border-bottom: 1px solid white;
+    font-size: 22px;
+  }
+  p {
+    font-family: cursive;
+    margin-bottom: 30px;
+  }
+  .help-btn:hover .phone-number {
+    display: block;
+  }
 </style>
 
 <div id="main" style="height: 680px">
   <div class="main-container">
-    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <i
+      id="logout-btn"
+      class="fa-solid fa-arrow-right-from-bracket"
+      onclick="logout()"
+    ></i>
     <i class="help-btn fa-solid fa-circle-question">
-  <span class="phone-number">For help, please call +972504934856</span>
-</i>
-    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <div class="btn-part">
-        <h1 class="fw-bold py-2 text-uppercase" style="color: white;">
-          Welcome {{ options.name }}</h1>
-      {% if not options.admin %}
-      <h2 class="fw-bold my-3 text-uppercase" style="color: white;">
-        Are you ready to play? </h2>
-      {% endif %}
-        <button id="start-btn" class="btn panel-btn" onclick="start()"><i
-            class="icon-btn fa-solid fa-play"></i>Start</button>
-      {% if options.admin %}
-        <button id="edit-btn" class="btn panel-btn" onclick="view_page('update-question')"><i
-            class="icon-btn fa-regular fa-pen-to-square"></i>Edit Questions</button>
-        <button id="add-btn" class="btn panel-btn" onclick="view_page('add-question')"><i
-            class="icon-btn fa-solid fa-plus"></i>Add New Question</button>
-      {% endif %}
+      <span class="phone-number">For help, please call +972504934856</span>
+    </i>
+    <img
+      src="https://i.ibb.co/MCrFdG6/logo-black-text.png"
+      alt="Company Logo"
+    />
+    <h1
+      class="fw-bold text-uppercase text-center"
+      style="color: white; background-color: #1d3557"
+    >
+      Welcome {{ options.name }}
+    </h1>
+    <div
+      class="second-container d-flex justify-content-evenly align-items-center"
+    >
+      <div class="sessions overflow-auto">
+        <p id="score-title">Your score is: {{ options.score }}</p>
+        {% for i in range(options.sessions|length) %} {% set session =
+        options.sessions[i] %}
+        <p class="scores">Session {{i+1}}: {{session}} Points</p>
+        {% endfor %}
+      </div>
+      <div class="btn-part">
+        {% if not options.admin %}
+        <h2 class="fw-bold my-3 text-uppercase" style="color: white">
+          Are you ready to play?
+        </h2>
+        {% endif %}
+        <button id="start-btn" class="btn panel-btn" onclick="start()">
+          <i class="icon-btn fa-solid fa-play"></i>Start
+        </button>
+        {% if options.admin %}
+        <button
+          id="edit-btn"
+          class="btn panel-btn"
+          onclick="view_page('update-question')"
+        >
+          <i class="icon-btn fa-regular fa-pen-to-square"></i>Edit Questions
+        </button>
+        <button
+          id="add-btn"
+          class="btn panel-btn"
+          onclick="view_page('add-question')"
+        >
+          <i class="icon-btn fa-solid fa-plus"></i>Add New Question
+        </button>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
